@@ -1,33 +1,31 @@
-/* eslint-disable no-unused-vars */
 import { Route, BrowserRouter as Router, Routes} from 'react-router-dom'
-import './App.css'
-import Footer from './Components/Footer'
 import Navbar from './Components/Navbar'
-import Home from './Pages/Home'
-import CreateBlog from './Pages/CreateBlog'
-import Register from './Pages/Register'
-import Login from './Pages/Login'
-import { useState } from 'react'
+import Home from './Pages/Home.jsx'
+import CreateBlog from './Pages/CreateBlog.jsx'
+import Login from './Pages/Login.jsx'
+import Footer from './Components/Footer.jsx'
+import Register from './Pages/Register.jsx'
 
-function App() {
-  const [isAuth , setIsAuth] = useState(false);
-  const [myUser , setMyUser] = useState(false);
-
-  return ( 
-    <>
-      <Router>
-      <Navbar isAuth={isAuth}/>
+const App = () => {
+  return (
+  <>
+  <div>
+    <Router>
+      <Navbar/>
       <div>
         <Routes>
-          <Route path="/" element={<Home setIsAuth={setIsAuth}/>} />
-          <Route path="/login" element={<Login setIsAuth={setIsAuth}/>} />
-          <Route path="/createblog" element={<CreateBlog isAuth={isAuth}/>} />
+          <Route path="/" element={<Home/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/createblog" element={<CreateBlog/>} />
           <Route path="/register" element={<Register/>}/>
         </Routes>
       </div>
       <Footer/>
     </Router>
-    </>
+  </div>
+    
+  </>
+   
   )
 }
 
